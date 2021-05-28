@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+  }
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+  .content {
+    top: 60%;  /*centers form*/
+    background: rgba(0, 0, 0, 0.5); /* sets background color of box*/
+    padding: 40px;   /* creates padding for form*/
+    height: 300px;    /*sets length of the form box*/
+    left: 50%;             /* centers form box in the middle */
+    margin-top: -125px;
+    margin-left: -125px;
+    position: absolute;
+    width: 250px;
+  }
+  .header{
+    position: relative;
+    background: rgba(236, 228, 216, 1);  /* sets header bar background color*/
+    color: #010101;        /* color of header text*/
+    width: 100%;       /* sets header bar length of screen width*/
+    padding-top: 10px;   /*creates padding around header text*/
+    padding-bottom: 0px;
+    text-align: center;
+    
+  }
+  .header h1{
+    text-shadow: 2px 2px 8px #010101;
+  }
+  .pyt-logo {
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 10px;
+  }
+  #form{
+      padding: 20px;
+  }

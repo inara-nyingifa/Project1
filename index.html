@@ -67,12 +67,18 @@
   <source src="./assets/Background.mp4" type="video/mp4" width="800px">
 </video>
 
-<main id="main-box">
+
+
 
 <!-- Same section-Search Bar -->
 
 <div class="content">
-  <div class="container">
+        <div id="googleMap"></div>
+        <div id="sidebar">
+          <ul id="places"></ul>
+      </div>
+
+  <div class="container" id="main-box"> 
     <div class="row">
       <div class="col s12">
         <h3>Let's Start Planning</h3>
@@ -86,9 +92,9 @@
     </div>
   </div>
 </div>
-</section>
 
-</main>
+
+
 
 <!-- Section: Icon Boxes -->
 <section class="section section-icons brown lighten-4 center">
@@ -288,7 +294,10 @@ const sideNav = document.querySelector('.sidenav');
      
  
       </script> 
-    
+
+      <!-- GOOGLE PLACES API -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3hvG5xtniBYkSfMmW0gBSpISphcw5RUg&libraries=places"></script>
+          
      <script src="https://code.jquery.com/jquery.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="./assets/js/script.js"></script>

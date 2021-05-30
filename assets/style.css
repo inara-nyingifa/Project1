@@ -5,10 +5,10 @@
     color: #f1f1f1;
     width: 50%;
     padding: 20px;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
     margin-left:300px;
     margin-right:-400px;
-    margin-top: 200px; 
+    margin-top: 20px; 
 
   }
   
@@ -29,6 +29,13 @@
 
   #myVideo {
     width: 100% !important;
+  }
+
+  #googleMap {
+    width: 80%;
+    height: 400px;
+    display: flex;
+    justify-content: left;
   }
 
  

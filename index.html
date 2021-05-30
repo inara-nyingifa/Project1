@@ -13,77 +13,57 @@
 <body>
 
 <!--nav bar -->
-
-<div class="navbar-fixed">
+<div class="nav-wrapper">
   <nav class="black">
-    <div class="containerb ">
+    <div class="container">
       <div class="nav-wrapper ">
         <a href="#!" class="brand-logo"id="plan">Plan Your Trip</a>
-        <a href="#" data-target="mobile-pyt" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-         <ul class="right hide-on-med-and-down">
-          <li>
-            <a href="#search">Search</a>
-          </li>
-          <li>
-            <a href="#search">Itinerary</a>
-          </li>
-          <li>
-            <a href="#gallery">Travel Tips</a>
-          </li>
-          <li>
-            <a href="#popular">Popular Places</a>
-          </li>
-          <li>
-            <a href="#contact">Support</a>
-          </li>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+         <ul class=" hide-on-med-and-down right">
+          <li class= "active"> <a href="#search">Search</a></li>
+          <li> <a href="#search">Itinerary</a></li>              
+          <li><a href="#gallery">Travel Tips</a></li>
+           <li><a href="#popular">Popular Places</a></li>                
+          <li><a href="#contact">Support</a></li> 
         </ul>
       </div>
     </div>
   </nav>
 </div>
+
 <ul class="sidenav" id="slide-out">
-  <li>
-    <a href="#search">Search</a>
-  </li>
-  <li>
-    <a href="#search">Itinerary</a>
-  </li>
-  <li>
-    <a href="#gallery">Travel Tips</a>
-  </li>
-  <li>
-    <a href="#popular">Popular Places</a>
-  </li>
-  <li>
-    <a href="#contact">Support</a>
-  </li>
+  <li><a href="#search">Search</a></li>
+  <li>  <a href="#search">Itinerary</a></li>
+  <li><a href="#gallery">Travel Tips</a></li>
+  <li><a href="#popular">Popular Places</a></li>
+  <li><a href="#contact">Support</a></li>
 </ul>
 
 <!--Background Video-->
 <section id="search" class="section section-search black darken-1 white-text center scrollspy"></section>
-<video autoplay muted loop id="myVideo">
-  <source src="./assets/Background.mp4" type="video/mp4" width="800px">
-</video>
+  <video autoplay muted loop id="myVideo">
+    <source src="./assets/Background.mp4" type="video/mp4" width="800px">
+  </video>
 
 <!-- Same Section-Search Bar -->
 
-<div class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <h3>Let's Start Planning</h3>
-        <div class="input-field">
-<!--Input Bars-->
-          <input class="white grey-text autocomplete" placeholder="Where are you going?" type="text" id="destination">
-          <input class="white grey-text " type="date" id="dates">
-<!-- Search Button-->
-          <a class="waves-effect waves-light btn"id="destination-btn">search</a>
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h3>Let's Start Planning</h3>
+          <div class="input-field">
+  <!--Input Bars-->
+            <input class="white grey-text autocomplete" placeholder="Where are you going?" type="text" id="destination">
+            <input class="white grey-text " type="date" id="dates">
+  <!-- Search Button-->
+            <a class="waves-effect waves-light btn"id="destination-btn">search</a>
 
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- Section: Icon Boxes -->
@@ -198,7 +178,7 @@
   </div>
 </section>
 
-<!-- Section: Gallery -->
+<!-- Section: Travel Tips -->
 <section id="gallery" class="section section-gallery scrollspy">
   <div class="container">
     <h4 class="center">
@@ -257,19 +237,15 @@
 <footer class="section brown darken-2 white-text center">
   <p class="flow-text">PYT &copy; 2021</p>
 </footer>
-
-<script>
-// Side Menu 
-const sideNav = document.querySelector(".sidenav");
-    M.Sidenav.init(sideNav, {});
-
-    // Scroll
-    const ss = document.querySelectorAll('.scrollspy');
-    M.ScrollSpy.init(ss, {});
-
-    // Auto Complete
-    const ac = document.querySelector("#destination");
-    M.Autocomplete.init(ac, {
+ 
+<!--Auto Complete js-->
+<script type="text/javascript">
+ //add event listner to the loaded DOM content and create a callback function
+    document.addEventListener('DOMContentLoaded', function(){
+      //create var to select the class where the autocomplete will be applied
+        const inputField = document.querySelector('.autocomplete');
+        //use materialize instance M.Autocomplete to initalize it then pass var through it
+        M.Autocomplete.init(inputField, {
         data: {
           "Aruba": null,
           "Cancun Mexico": null,
@@ -281,10 +257,37 @@ const sideNav = document.querySelector(".sidenav");
           "The Bahamas": null,
         }
       });
+    });
+ </script>  
  
-      </script>  
+ <!--Side nav-->
+
+ <script type="text/javascript">
+  //add event listner to the loaded DOM content and create a callback function
+  document.addEventListener('DOMContentLoaded', function() {
+    //create var to select the class where the sidenav will be applied
+    const sideNav = document.querySelectorAll(".sidenav");
+      //use materialize instance M.Sidenav to initalize it then pass var through it
+      M.Sidenav.init(sideNav, {});
+   });
+</script>
+
+<!--// Scroll to section (scrollspy)-->
+<script type="text/javascript">
+  //add event listner to the loaded DOM content and create a callback function
+  document.addEventListener('DOMContentLoaded', function() {
+    //create var to select the class where the sidenav will be applied
+    const ss = document.querySelectorAll('.scrollspy');
+      //use materialize instance M.Sidenav to initalize it then pass var through it
+      M.ScrollSpy.init(ss, {});
+  });
+</script>
+
       <script src="java.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
 </body>
 </html>
+
+
+

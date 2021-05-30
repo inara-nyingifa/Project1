@@ -18,8 +18,8 @@
   <nav class="black">
     <div class="containerb ">
       <div class="nav-wrapper ">
-        <a href="#!" class="brand-logo">Plan Your Trip</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#!" class="brand-logo"id="plan">Plan Your Trip</a>
+        <a href="#" data-target="mobile-pyt" class="sidenav-trigger"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
           <li>
             <a href="#search">Search</a>
@@ -41,7 +41,7 @@
     </div>
   </nav>
 </div>
-<ul class="sidenav" id="mobile-demo">
+<ul class="sidenav" id="slide-out">
   <li>
     <a href="#search">Search</a>
   </li>
@@ -65,7 +65,7 @@
   <source src="./assets/Background.mp4" type="video/mp4" width="800px">
 </video>
 
-<!-- Same section-Search Bar -->
+<!-- Same Section-Search Bar -->
 
 <div class="content">
   <div class="container">
@@ -73,9 +73,11 @@
       <div class="col s12">
         <h3>Let's Start Planning</h3>
         <div class="input-field">
+<!--Input Bars-->
           <input class="white grey-text autocomplete" placeholder="Where are you going?" type="text" id="destination">
           <input class="white grey-text " type="date" id="dates">
-          <a class="waves-effect waves-light btn"id="destination-btn">button</a>
+<!-- Search Button-->
+          <a class="waves-effect waves-light btn"id="destination-btn">search</a>
 
         </div>
       </div>
@@ -258,7 +260,7 @@
 
 <script>
 // Side Menu 
-const sideNav = document.querySelector('.sidenav');
+const sideNav = document.querySelector(".sidenav");
     M.Sidenav.init(sideNav, {});
 
     // Scroll
@@ -279,7 +281,6 @@ const sideNav = document.querySelector('.sidenav');
           "The Bahamas": null,
         }
       });
-     
  
       </script>  
       <script src="java.js"></script>

@@ -1,72 +1,126 @@
-// variables
-var city = '';
-var destination = document.querySelector('#destination');
-var searchBtn = document.querySelector('#search-btn');
-var placesContainer = document.querySelector('#places-container');
-var mainPage = document.getElementById('main-page');
-// create a variable with the latitude and longitude
 let map;
+let localContextMapView;
+const styles = [
+    { elementType: "geometry", stylers: [{ color: "#efe6be" }] },
+    { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+    {
+      elementType: "labels.text.fill",
+      stylers: [{ color: "#f5f5f5" }, { weight: 1.5 }],
+    },
+    {
+      elementType: "labels.text.stroke",
+      stylers: [{ color: "#9e9e9e" }, { weight: 1.5 }],
+    },
+    {
+      featureType: "administrative.land_parcel",
+      stylers: [{ visibility: "off" }],
+    },
+    {
+      featureType: "administrative.land_parcel",
+      elementType: "labels.text.fill",
+      stylers: [{ color: "#bdbdbd" }],
+    },
+    {
+      featureType: "administrative.neighborhood",
+      stylers: [{ visibility: "off" }],
+    },
+    {
+      featureType: "poi",
+      elementType: "geometry",
+      stylers: [{ color: "#c44135" }],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "geometry",
+      stylers: [{ color: "#328829" }],
+    },
+    {
+      featureType: "poi.sports_complex",
+      elementType: "geometry",
+      stylers: [{ color: "#2ca37b" }],
+    },
+    {
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [{ color: "#e4b083" }],
+    },
+    {
+      featureType: "road",
+      elementType: "labels",
+      stylers: [{ visibility: "off" }],
+    },
+    {
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [{ color: "#32cbb1" }],
+    },
+    {
+      featureType: "water",
+      elementType: "labels.text",
+      stylers: [{ visibility: "off" }],
+    },
+    {
+      featureType: "water",
+      elementType: "labels.text.fill",
+      stylers: [{ color: "#9e9e9e" }],
+    },
+  ];
+
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  localContextMapView = new google.maps.localContext.LocalContextMapView({
+    element: document.getElementById("map"),
+    placeTypePreferences: [
+      { type: "bakery", weight: 1 },
+      { type: "cafe", weight: 2 },
+      { type: "department_store", weight: 1 },
+      { type: "bar", weight: 2 },
+      { type: "park", weight: 3 },
+      { type: "restaurant", weight: 3 },
+      { type: "supermarket", weight: 2 },
+    ],
+    maxPlaceCount: 10,
+  });
+  map = localContextMapView.map;
+  map.setOptions({
     center: { lat: 34.052235, lng: -118.243683 },
-    zoom: 15,
+    zoom: 14,
+    styles,
   });
-  const searchBox = new google.maps.places.SearchBox(destination);
-  console.log('searchBox', searchBox);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination);
-  map.addListener('bounds_changed', () => {
-    searchBox.setBounds(map.getBounds());
-  });
-  let markers = [];
-  searchBox.addListener('places_changed', () => {
-    const places = searchBox.getPlaces();
-    console.log('places', places);
-    if (places.length == 0) {
+  // Build and add the Autocomplete search bar
+  const input = document.getElementById("input");
+  const options = {
+    types: ["address"],
+    componentRestrictions: {
+      country: "us",
+    },
+  };
+  const autocomplete = new google.maps.places.Autocomplete(input, options);
+  autocomplete.setFields(["address_components", "geometry", "name"]);
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+
+    if (!place || !place.geometry) {
+      // User entered the name of a Place that was not suggested and
+      // pressed the Enter key, or the Place Details request failed.
+      window.alert("No address available for that input.");
       return;
     }
-    // Clear out the old markers.
-    markers.forEach((marker) => {
-      marker.setMap(null);
+    // Recenter the map to the selected address
+    map.setOptions({
+      center: place.geometry.location,
+      zoom: 14,
     });
-    markers = [];
-    // For each place, get the icon, name and location.
-    const bounds = new google.maps.LatLngBounds();
-    places.forEach((place) => {
-      if (!place.geometry || !place.geometry.location) {
-        console.log('Returned place contains no geometry');
-        return;
-      }
-      const icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25),
-      };
-      // Create a marker for each place.
-      markers.push(
-        new google.maps.Marker({
-          map,
-          icon,
-          title: place.name,
-          position: place.geometry.location,
-        })
-      );
-      if (place.geometry.viewport) {
-        // Only geocodes have viewport.
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
+    // Update the localContext directionsOptions origin
+    localContextMapView.directionsOptions = {
+      origin: place.geometry.location,
+    };
+    new google.maps.Marker({
+      position: place.geometry.location,
+      map: map,
+      icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAdUlEQVR4AWMYOWAU/AfhYWMBCxA3A/FlIN4MxN7I6gjg80DcD8QC+CzIxqIxH6aOSHwfYQmmBZexuQymjgTcj8uCz1gUHybDgvO4LFiMRXE4GRb8x2UBDxCXQ8PxPdSrLNSxAD+g3ALCeNQCKoHhZcHAg1EAAM3cyWj3TGxhAAAAAElFTkSuQmCC",
+      zIndex: 30,
     });
-    map.fitBounds(bounds);
+    // update the results with new places
+    localContextMapView.search();
   });
 }
-function displayMap() {
-  document.getElementById('main-box').style.display = 'none';
-  var mapDiv = document.createElement('div');
-  mapDiv.setAttribute('id', 'map');
-  mainPage.appendChild(mapDiv);
-  initMap();
-}
-$('#search-btn').on('click', displayMap);

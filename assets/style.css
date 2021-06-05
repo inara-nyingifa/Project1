@@ -121,7 +121,27 @@ ul {
   margin: 0;
   flex-grow: 1;
 }
+#places {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  flex-grow: 1;
+}
 
+#places li {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+#places li:nth-child(odd) {
+  background-color: #fcfcfc;
+}
 
 
 .filter {

@@ -22,7 +22,6 @@
          <ul class=" hide-on-med-and-down right">
           <li class= "active"> <a href="#search">Search</a></li>
           <li> <a href="#search">Itinerary</a></li>              
-          <li><a href="#gallery">Travel Tips</a></li>
            <li><a href="#popular">Popular Places</a></li>                
           <li><a href="#contact">Support</a></li> 
         </ul>
@@ -31,42 +30,46 @@
   </nav>
 </div>
 
-<ul class="sidenav" id="slide-out">
-  <li><a href="#search">Search</a></li>
-  <li>  <a href="#search">Itinerary</a></li>
-  <li><a href="#gallery">Travel Tips</a></li>
-  <li><a href="#popular">Popular Places</a></li>
-  <li><a href="#contact">Support</a></li>
-</ul>
+
 
 <!--Background Video-->
-<section id="search" class="section section-search black darken-1 white-text center scrollspy"></section>
   <video autoplay muted loop id="myVideo">
-    <source src="./assets/Background.mp4" type="video/mp4" width="800px">
+    <source src="./assets/Background.mp4" type="video/mp4" width="100%">
   </video>
 
 <!-- Same Section-Search Bar -->
 
-  <div class="content" id="main-page">
-    <div class="container" id="main-box" >
+  <div class="content">
+    <div class="container">
       <div class="row">
         <div class="col s12">
           <h3>Let's Start Planning</h3>
-          <div class="input-field">
-  <!--Input Bars-->
-            <input class="white grey-text autocomplete" placeholder="Where are you going?" type="text" id="destination">
-            <input class="white grey-text " type="date" id="dates">
   <!-- Search Button-->
-            <a class="waves-effect waves-light btn"id="search-btn">search</a>
-
+  <a  href="#search" class="waves-effect waves-light btn"id="search-btn">Start</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <div>
+    <div id="search" class="search-container">
+      <div class="row">
+        <div class="col s12">
+          <h3>Where are you staying?</h3>
+  <!--Input Bars-->
+            <input id="input" placeholder="Enter a hotel address" />   
+            <div id="map"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>
+
+
 
 <!-- Section: Icon Boxes -->
 <section class="section section-icons brown lighten-4 center">
@@ -180,13 +183,7 @@
   </div>
 </section>
 
-<!-- Section: Travel Tips -->
-<section id="gallery" class="section section-gallery scrollspy">
-  <div class="container">
-    <h4 class="center">
-      <span class="brown-text">Travel </span> Tips
-    </h4>
-    <h1>CREATE TIPS SECTION... ASK FOR IDEAS...OR JUST LEAVE BLANK :(</h1>
+
     <!--insert tips section here-->
 
 <!-- Section: Contact -->
@@ -205,7 +202,7 @@
             <h4>Location</h4>
           </li>
           <li class="collection-item">we fancy lane</li>
-          <li class="collection-item">I hate ucla coding bootcamp, Suite 1234</li>
+          <li class="collection-item">Suite 1234</li>
           <li class="collection-item">Torrance,Ca 90504</li>
         </ul>
       </div>
@@ -240,27 +237,6 @@
   <p class="flow-text">PYT &copy; 2021</p>
 </footer>
  
-<!--Auto Complete js-->
-<script type="text/javascript">
- //add event listner to the loaded DOM content and create a callback function
-    document.addEventListener('DOMContentLoaded', function(){
-      //create var to select the class where the autocomplete will be applied
-        const inputField = document.querySelector('.autocomplete');
-        //use materialize instance M.Autocomplete to initalize it then pass var through it
-        M.Autocomplete.init(inputField, {
-        data: {
-          "Aruba": null,
-          "Cancun Mexico": null,
-          "Hawaii": null,
-          "Florida": null,
-          "California": null,
-          "Jamaica": null,
-          "Europe": null,
-          "The Bahamas": null,
-        }
-      });
-    });
- </script>  
  
  <!--Side nav-->
 
@@ -287,9 +263,11 @@
 
     
       <!-- Google API -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3hvG5xtniBYkSfMmW0gBSpISphcw5RUg&libraries=places"></script>
-
-     <script src="https://code.jquery.com/jquery.js"></script>
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3hvG5xtniBYkSfMmW0gBSpISphcw5RUg&callback=initMap&libraries=localContext,places&v=beta"
+      async
+    ></script>
+       <script src="https://code.jquery.com/jquery.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="./assets/js/script.js"></script>
             

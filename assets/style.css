@@ -119,44 +119,10 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  overflow-y: scroll;
   flex-grow: 1;
 }
 
-li {
-  background-color: #f1f1f1;
-  padding: 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
 
-li:nth-child(odd) {
-  background-color: #fcfcfc;
-}
-
-button {
-  width: 100%;
-  padding: 1rem;
-  flex-grow: 0;
-  cursor: pointer;
-  background: #1a73e8;
-  font-size: 1.5rem;
-  color: white;
-  border: none;
-}
-
-button:hover {
-  color: #c5d4f0;
-}
-
-button:disabled {
-  background-color: #9fc1ee;
-  color: #c5d4f0;
-  cursor: auto;
-}
 
 .filter {
   display: flex;

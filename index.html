@@ -44,18 +44,11 @@
     <source src="./assets/Background.mp4" type="video/mp4" width="100%">
   </video>
 
-  <!-- Switch -->
-  <div onclick="show_hide()" class="switch">
-    <label id="open">
-      Open Itinerary
-      <input type="checkbox">
-      <span class="lever"></span>
-      Close Itinerary
-    </label>
-  </div>
+  
+  
 
 <!--Interary box-->
-<section class="scrollspy section section-icons brown darker-4 center" id="itinerary">
+<section style="display:none" class="scrollspy section section-icons brown darker-4 center" id="itinerary">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -205,7 +198,9 @@
         <div class="col s12">
           <h3>Where are you staying?</h3>
   <!--Input Bars-->
-            <input id="input" placeholder="Enter a hotel address" />   
+            <input id="input" placeholder="Enter a hotel address" />  
+            <!--Open and close Itinerary-->
+            <button onclick="ShowAndHide()" class= "btn crollspy" id="open-itin"><a href="#itinerary">Create itinerary</a></button> 
             <div id="map"></div>
           </div>
           </div>
@@ -379,6 +374,7 @@
   </div>
 </section>
 
+
 <!-- Footer -->
 <footer class="section brown darken-2 white-text center">
   <p class="flow-text">PYT &copy; 2021</p>
@@ -426,21 +422,21 @@
 
 <!--Hides Itinerary form-->
 <script type="text/javascript">
-  var a;
-  function show_hide()
-  {
-    if(a==1)
-    {
-      document.querySelector('#itinerary').style.display="inline";
-      return a==0;
+ 
+  function ShowAndHide() {
+    var open = document.getElementById('itinerary');
+    if (open.style.display == 'none') {
+        open.style.display = 'block';
+    } else {
+        open.style.display = 'none';
     }
+}
 
-    else
-    {
-      document.querySelector('#itinerary').style.display="none";
-      return a==1;
-    }
-  }
+
+
+
+
+
 </script>
 
       <!-- Google API -->

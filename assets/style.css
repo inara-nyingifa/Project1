@@ -52,6 +52,8 @@ nav .brand-logo {
   }
 } 
 
-.hide {
-  display: none!important;
+#open-itin {
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: brown;
 }

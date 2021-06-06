@@ -101,7 +101,7 @@ function initMap() {
     if (!place || !place.geometry) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.
-      window.alert("No address available for that input.");
+      swal("No address available for that input.");
       return;
     }
     // Recenter the map to the selected address
@@ -125,36 +125,33 @@ function initMap() {
 }
 
 
-
-
-
-
-
 //adding local storage
 
+let itinerary =[]; // inputs will add to the array itinerary
+const addItin = (ev) =>{
+ev.preventDefault();
+let itin = {
+  //pull input values for date, time and activity
+  date: document.getElementById('date').value,
+  time: document.getElementById('time-input1', 'time-input2').value,
+  activity: document.getElementById('activity1', 'activity2').value
+}
+itinerary.push(itin);  // take input and push to array itinerary
+//document.forms[0].reset();  //to clear the form for the next entry
 
-  let itinerary =[]; // inputs will add to the array itinerary
-  const addItin = (ev) =>{
-  ev.preventDefault();
-  let itin = {
-    //pull input values for date, time and activity
-    date: document.getElementById('date').value,
-    time: document.getElementById('time-input1', 'time-input2').value,
-    activity: document.getElementById('activity1', 'activity2').value
-  }
-  itinerary.push(itin);  // take input and push to array itinerary
-  //document.forms[0].reset();  //to clear the form for the next entry
-  
-  console.warn('added' , {itinerary} );
-  // if it works this code will type the saved string
-  let pre = document.querySelector('#msg pre');
-  pre.textContent = "\n" + JSON.stringify(itinerary, '\t', 2);
-  
-  //saving to local storage
-  localStorage.setItem('MyItineraryList', JSON.stringify(itinerary))
-  
-  }
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.getElementById('save-btn').addEventListener('click', addItin);
-    });
- 
+console.warn('added' , {itinerary} );
+// if it works this code will type the saved string
+let pre = document.querySelector('#msg pre');
+pre.textContent = "\n" + JSON.stringify(itinerary, '\t', 2);
+
+//saving to local storage
+localStorage.setItem('MyItineraryList', JSON.stringify(itinerary))
+
+}
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('save-btn').addEventListener('click', addItin);
+  });
+
+
+
+    

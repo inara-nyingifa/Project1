@@ -60,7 +60,7 @@
     <div class="row">
       <div class="col">
         <form class="form" >
-          <i class="material-icons large black-text">assignment</i>
+          <i class="material-icons large white-text">assignment</i>
           <!--6 input collumns for date and activity -->
           <div class="row">
             <div class="col l3">
@@ -88,9 +88,8 @@
                   <div class="row">
                     <div class="input-field form-group col s6"><input id="time-input6" type="text" class="timepicker" placeholder="Time"></div>
                     <div class="input-field form-group col s6"><input id="activity6" type="text" placeholder="Activity" class="validate"></div>
-                  </div>-->
-                  <div class="btn form-group col s12" id="save-btn">save</div>
-           <!-- </div>
+                  </div>
+           </div>
             
             <div class="col l3 hide-on-med-and-down">
               <input type="text" id="date" class="datepicker" placeholder="Today's Date">
@@ -172,16 +171,14 @@
                     <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
                     <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
                   </div>
-            </div> -->
-
+            </div> 
+            <div class="btn form-group center-align col s4" id="save-btn">save</div>
+            <div class="btn form-group center-align col s4 red darken-1" id="clear-btn">clear</div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  <h4>Copy and send your Itinterary with your friends</h4>
-          <div class="btn">Send</div>
-          <div id="msg"><pre>if it saves itll display below</pre></div>
 </section>
 
 <!-- Same Section-Search Bar -->
@@ -331,8 +328,6 @@
 </section>
 
 
-    <!--insert tips section here-->
-
 <!-- Section: Contact -->
 <section id="contact" class="section section-contact scrollspy">
   <div class="container">
@@ -441,6 +436,7 @@
       return a==1;
     }
   }
+  
 </script>
 
       <!-- Google API -->
@@ -448,6 +444,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3hvG5xtniBYkSfMmW0gBSpISphcw5RUg&callback=initMap&libraries=localContext,places&v=beta"
       async
     ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
        <script src="https://code.jquery.com/jquery.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="./assets/js/script.js"></script>

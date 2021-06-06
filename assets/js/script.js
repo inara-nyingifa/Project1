@@ -137,7 +137,7 @@ let itin = {
   activity: document.getElementById('activity1', 'activity2').value
 }
 itinerary.push(itin);  // take input and push to array itinerary
-//document.forms[0].reset();  //to clear the form for the next entry
+document.forms[0].reset();  //to clear the form for the next entry
 
 console.warn('added' , {itinerary} );
 // if it works this code will type the saved string

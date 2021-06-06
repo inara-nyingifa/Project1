@@ -55,7 +55,7 @@
         <div class="col s12">
           <h3>Let's Start Exploring</h3>
   <!-- Search Button-->
-  <a  href="#search" class="waves-effect waves-light btn"id="search-btn">Start</a>
+  <a  href="#search" class="waves-effect waves-light brown btn"id="search-btn">Start</a>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
   <!--Input Bars-->
             <input id="input" placeholder="Enter a hotel address" />  
             <!--Open and close Itinerary-->
-            <button onclick="ShowAndHide()" class= "btn crollspy" id="open-itin"><a href="#itinerary">Create itinerary</a></button> 
+            <button style= "text-decoration:none" onclick="ShowAndHide()" class= "btn scrollspy brown" id="open-itin"><a href="#itinerary">Create itinerary</a></button> 
             <div id="map"></div>
           </div>
           </div>
@@ -80,16 +80,6 @@
   </div>
 
 </section>
-
-<!-- Switch -->
-<div onclick="show_hide()" class="switch">
-  <label id="open">
-    Open Itinerary
-    <input type="checkbox">
-    <span class="lever"></span>
-    Close Itinerary
-  </label>
-</div>
 
 
 <!--Interary box-->
@@ -101,7 +91,7 @@
           <i class="material-icons large black-text">assignment</i>
           <!--6 input collumns for date and activity -->
           <div class="row">
-            <div class="col l3">
+            <div class="col l">
               <input type="text" id="date" class="datepicker input-field form-group" placeholder="Today's Date">
                   <div class="row">
                     <div class="input-field form-group col s6"><input id="time-input1" type="text" class="timepicker" placeholder="Time"></div>
@@ -126,7 +116,7 @@
                   <div class="row">
                     <div class="input-field form-group col s6"><input id="time-input6" type="text" class="timepicker" placeholder="Time"></div>
                     <div class="input-field form-group col s6"><input id="activity6" type="text" placeholder="Activity" class="validate"></div>
-                  </div>-->
+                  </div>
                   <div class="btn form-group col s12" id="save-btn">save</div>
            <!-- </div>
             
@@ -429,8 +419,7 @@
 
 <!--Hides Itinerary form-->
 <script type="text/javascript">
- 
-  function ShowAndHide() {
+ function ShowAndHide() {
     var open = document.getElementById('itinerary');
     if (open.style.display == 'none') {
         open.style.display = 'block';
@@ -438,14 +427,6 @@
         open.style.display = 'none';
     }
 }
-    else
-    {
-      document.querySelector('#itinerary').style.display="none";
-      return a==1;
-    }
-  }
-  
-
 </script>
 
       <!-- Google API -->

@@ -70,7 +70,6 @@ function initMap() {
   localContextMapView = new google.maps.localContext.LocalContextMapView({
     element: document.getElementById("map"),
     placeTypePreferences: [
-      { type: "bakery", weight: 1 },
       { type: "cafe", weight: 2 },
       { type: "department_store", weight: 1 },
       { type: "bar", weight: 2 },

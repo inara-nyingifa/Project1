@@ -33,5 +33,5 @@ https://inara-nyingifa.github.io/plan-your-trip/
 Inara Nyingifa, Liz Arias and Genesis Perez 
 
 ## Mock up of the functioning website
-![Mock-up]()
+![Mock-up](mockup.gif)
  

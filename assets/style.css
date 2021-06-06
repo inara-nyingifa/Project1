@@ -9,6 +9,9 @@
   margin: 300px 20px 200px 80px;
 }
 
+h4, #msg {
+  color: white;
+}
 
 .section-follow .fa-4x {
   margin: 5px 10px;

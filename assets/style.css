@@ -50,4 +50,8 @@ nav .brand-logo {
   .content {
     margin: 10px 30px 500px 30px;
   }
+} 
+
+.hide {
+  display: none!important;
 }

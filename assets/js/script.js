@@ -123,3 +123,38 @@ function initMap() {
     localContextMapView.search();
   });
 }
+
+
+
+
+
+
+
+//adding local storage
+
+
+  let itinerary =[]; // inputs will add to the array itinerary
+  const addItin = (ev) =>{
+  ev.preventDefault();
+  let itin = {
+    //pull input values for date, time and activity
+    date: document.getElementById('date').value,
+    time: document.getElementById('time-input1', 'time-input2').value,
+    activity: document.getElementById('activity1', 'activity2').value
+  }
+  itinerary.push(itin);  // take input and push to array itinerary
+  //document.forms[0].reset();  //to clear the form for the next entry
+  
+  console.warn('added' , {itinerary} );
+  // if it works this code will type the saved string
+  let pre = document.querySelector('#msg pre');
+  pre.textContent = "\n" + JSON.stringify(itinerary, '\t', 2);
+  
+  //saving to local storage
+  localStorage.setItem('MyItineraryList', JSON.stringify(itinerary))
+  
+  }
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('save-btn').addEventListener('click', addItin);
+    });
+ 

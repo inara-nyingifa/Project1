@@ -133,25 +133,34 @@ ev.preventDefault();
 let itin = {
   //pull input values for date, time and activity
   date: document.getElementById('date').value,
-  time: document.getElementById('time-input1', 'time-input2').value,
-  activity: document.getElementById('activity1', 'activity2').value
+  time: document.getElementById('time-input1', '' ).value,
+  activity: document.getElementById('activity1', '').value,
+  time2: document.getElementById('time-input2',"" ).value,
+  activity2: document.getElementById('activity2', '').value,
+  time3: document.getElementById('time-input3', '' ).value,
+  activity3: document.getElementById('activity3', '').value,
+  time4: document.getElementById('time-input4', '').value,
+  activity4: document.getElementById('activity4', '').value,
+  time5: document.getElementById('time-input5', '').value,
+  activity5: document.getElementById('activity5', '').value,
+  time6: document.getElementById('time-input6', '' ).value,
+  activity6: document.getElementById('activity6', '').value,
 }
 itinerary.push(itin);  // take input and push to array itinerary
-document.forms[0].reset();  //to clear the form for the next entry
+//document.forms[3].reset();  //to clear the form for the next entry
 
 console.warn('added' , {itinerary} );
 // if it works this code will type the saved string
-let pre = document.querySelector('#msg pre');
-pre.textContent = "\n" + JSON.stringify(itinerary, '\t', 2);
+// let pre = document.querySelector('#msg pre');
+// pre.textContent = "\n" + JSON.stringify(itinerary, '\t', 2);
+// console.log(pre.textContent);
+
 
 //saving to local storage
 localStorage.setItem('MyItineraryList', JSON.stringify(itinerary))
-
+// console.log(localStorage);
 }
   document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('save-btn').addEventListener('click', addItin);
   });
 
-
-
-    

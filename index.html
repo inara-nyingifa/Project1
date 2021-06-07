@@ -56,7 +56,7 @@
           <h3>Let's Start Exploring</h3>
   <!-- Search Button-->
   <a  href="#search" class="waves-effect waves-light brown btn"id="search-btn">Start</a>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -66,18 +66,17 @@
     <div id="search" class="search-container scrollspy">
       <div class="row">
         <div class="col s12">
+          <div><button onclick="ShowAndHide()" class= "btn scrollspy brown material-icons" id="open-itin"><a href="#itinerary">Open Itinerary</a></button> </div>
           <h3>Where are you staying?</h3>
   <!--Input Bars-->
-            <input id="input" placeholder="Enter a hotel address" />  
+            <input id="input" placeholder="Enter a hotel address" />
             <!--Open and close Itinerary-->
-            <button style= "text-decoration:none" onclick="ShowAndHide()" class= "btn scrollspy brown" id="open-itin"><a href="#itinerary">Create itinerary</a></button> 
             <div id="map"></div>
           </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    
 
 </section>
 
@@ -89,9 +88,10 @@
       <div class="col">
         <form class="form" >
           <i class="material-icons large black-text">assignment</i>
+          <div><button onclick="ShowAndHide()" class= "btn scrollspy brown material-icons" id="open-itin">close itinerary</button> </div>
           <!--6 input collumns for date and activity -->
           <div class="row">
-            <div class="col l">
+            <div class="col l9">
               <input type="text" id="date" class="datepicker input-field form-group" placeholder="Today's Date">
                   <div class="row">
                     <div class="input-field form-group col s6"><input id="time-input1" type="text" class="timepicker" placeholder="Time"></div>
@@ -118,98 +118,17 @@
                     <div class="input-field form-group col s6"><input id="activity6" type="text" placeholder="Activity" class="validate"></div>
                   </div>
                   <div class="btn form-group col s12" id="save-btn">save</div>
-           <!-- </div>
-            
-            <div class="col l3 hide-on-med-and-down">
-              <input type="text" id="date" class="datepicker" placeholder="Today's Date">
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
             </div>
-            <div class="col l3 hide-on-med-and-down">
-              <input type="text" id="date" class="datepicker" placeholder="Today's Date">
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
+           <!-- <div class="saved col l3"id="msg"><pre>if it saves it'll display below</pre></div>-->
             </div>
-            <div class="col l3 hide-on-med-and-down">
-              <input type="text" id="date" class="datepicker" placeholder="Today's Date">
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input"type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input"type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input"type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input"type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input"type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s6"><input id="time-input" type="text" class="timepicker" placeholder="Time"></div>
-                    <div class="input-field col s6"><input id="activity" type="text" placeholder="Activity" class="validate"></div>
-                  </div>
-            </div> -->
-
+            </div>
           </form>
         </div>
-      </div>
     </div>
   </div>
-  <h4>Copy and send your Itinterary with your friends</h4>
-          <div class="btn">Send</div>
-          <div id="msg"><pre>if it saves it'll display below</pre></div>
+    <!-- <h4>Copy and send your Itinterary with your friends</h4>
+          <div class="btn">Send</div> -->
+          
 </section>
 
 <!-- Section: Icon Boxes -->
@@ -428,6 +347,8 @@
     }
 }
 </script>
+
+
 
       <!-- Google API -->
       <script
